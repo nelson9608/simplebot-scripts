@@ -14,7 +14,7 @@ def search2(bot: DeltaBot, payload: str, message: Message, replies: Replies) -> 
         replies.add(text=text or "Search results", html=html, quote=message)
 
 
-def search2(bot_addr: str, query: str) -> tuple:
+def _search2_cmd(1, bot, payload, message, replies) -> tuple:
     with session.get(f"https://duckduckgo.com/lite?q={quote_plus(query)}") as resp:
         resp.raise_for_status()
         return prepare_html(bot_addr, resp.url, resp.text)
