@@ -7,14 +7,14 @@ from simplebot_instantview import prepare_html, session  # noqa
 
 
 @simplebot.command
-def search(bot: DeltaBot, payload: str, message: Message, replies: Replies) -> None:
+def search2(bot: DeltaBot, payload: str, message: Message, replies: Replies) -> None:
     """Send me any text in private to search in the web."""
     if not replies.has_replies() and not message.chat.is_multiuser() and message.text:
         text, html = _search(bot.self_contact.addr, message.text)
         replies.add(text=text or "Search results", html=html, quote=message)
 
 
-def _search(bot_addr: str, query: str) -> tuple:
+def search(bot_addr: str, query: str) -> tuple:
     with session.get(f"https://duckduckgo.com/lite?q={quote_plus(query)}") as resp:
         resp.raise_for_status()
         return prepare_html(bot_addr, resp.url, resp.text)
