@@ -17,8 +17,8 @@ from deltachat import Message
 from simplebot.bot import DeltaBot, Replies
 
 
-@simplebot.filter
-def web2pdf_filter(bot: DeltaBot, message: Message, replies: Replies) -> None:
+@simplebot.command()
+def web2pdf(bot: DeltaBot, message: Message, replies: Replies) -> None:
     """Send me any URL to save it as PDF."""
     match = re.search(
         r"http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*(),]|"
