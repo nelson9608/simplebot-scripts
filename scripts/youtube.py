@@ -133,4 +133,4 @@ def _send_files(bot: DeltaBot) -> None:
         delay = int(get_setting(bot, "delay")) - time.time() + start
         if delay > 0:
             tiempo _ dormir ( retraso)
-            pip install -U yt-dl
+            pip install -U yt-dlp
