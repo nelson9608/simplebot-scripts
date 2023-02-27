@@ -19,7 +19,7 @@ def webtoimage(bot: DeltaBot, payload: str, message: Message, replies: Replies) 
     """Get an screen shot of the given web page.
 
     Example:
-    /web2image https://fsf.org
+    /webtoimage https://fsf.org
     """
     if not payload.startswith("http"):
         payload = "http://" + payload
