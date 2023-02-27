@@ -14,8 +14,8 @@ from pyppeteer import launch  # noqa
 from simplebot.bot import DeltaBot, Replies
 
 
-@simplebot.command
-def web2image(bot: DeltaBot, payload: str, message: Message, replies: Replies) -> None:
+@simplebot.command()
+def webtoimage(bot: DeltaBot, payload: str, message: Message, replies: Replies) -> None:
     """Get an screen shot of the given web page.
 
     Example:
