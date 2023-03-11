@@ -8,7 +8,7 @@ from simplebot_instantview import prepare_html, session  # noqa
 
 @simplebot.command()
 def wiki(bot: DeltaBot, message: Message, replies: Replies) -> None:
-    """Send me the name of the APK you want to search in malavida."""
+    """Search in wikipedia."""
     if not replies.has_replies() and not message.chat.is_multiuser() and message.text:
         text, html = _search(bot.self_contact.addr, message.text)
         replies.add(text=text or "Search results", html=html, quote=message)
