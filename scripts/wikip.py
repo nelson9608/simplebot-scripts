@@ -5,7 +5,7 @@ from deltachat import Message
 from simplebot.bot import DeltaBot, Replies
 from simplebot_instantview import prepare_html, session  # noqa
 
-@simplebot.filter(trylast=True)
+@simplebot.command()
 def search_filter(bot: DeltaBot, message: Message, replies: Replies) -> 
 None:
      """Send me any text in private to search in Wikipedia."""
