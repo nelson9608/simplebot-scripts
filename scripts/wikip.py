@@ -6,7 +6,7 @@ from simplebot.bot import DeltaBot, Replies
 from simplebot_instantview import prepare_html, session  # noqa
 
 @simplebot.command()
-def search_filter(bot: DeltaBot, message: Message, replies: Replies) -> 
+def wiki(bot: DeltaBot, message: Message, replies: Replies) -> 
 None:
      """Send me any text in private to search in Wikipedia."""
      if not replies.has_replies() and not message.chat.is_multiuser() and 
