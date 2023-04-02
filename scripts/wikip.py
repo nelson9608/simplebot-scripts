@@ -15,6 +15,7 @@ def wiki(bot: DeltaBot, message: Message, replies: Replies) -> None:
 
 
 def _search(bot_addr: str, query: str) -> tuple:
+	query = query.replace("/wiki", "")
     with session.get(f"https://es.wikipedia.org/w/index.php?title=Special:Search&limit=20&offset=0&ns0=1&search={quote_plus(query)}") as resp:
         resp.raise_for_status()
         return prepare_html(bot_addr, resp.url, resp.text)
