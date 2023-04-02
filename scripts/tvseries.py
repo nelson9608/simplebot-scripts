@@ -15,7 +15,7 @@ def imdb(bot: DeltaBot, message: Message, replies: Replies) -> None:
 
 
 def _search(bot_addr: str, query: str) -> tuple:
-     query = query.replace("/wiki", "") 
+     query = query.replace("/imdb", "") 
      with session.get(f"https://www.imdb.com/find?q={quote_plus(query)}") as resp:
          resp.raise_for_status()
          return prepare_html(bot_addr, resp.url, resp.text)
