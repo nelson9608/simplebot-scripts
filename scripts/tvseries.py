@@ -16,7 +16,6 @@ def sinopsis(bot: DeltaBot, message: Message, replies: Replies) -> None:
 
 def _search(bot_addr: str, query: str) -> tuple:
      query = query.replace("sinopsis", "")  # Elimina la palabra "sinopsis" del término de búsqueda
-     with session.get(f"https://www.sensacine.com/busqueda/?q={quote_plus(query)}&cseries=1") 
-as resp:
+     with session.get(f"https://www.sensacine.com/busqueda/?q={quote_plus(query)}&cseries=1") as resp:
          resp.raise_for_status()
          return prepare_html(bot_addr, resp.url, resp.text)
