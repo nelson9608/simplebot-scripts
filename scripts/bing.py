@@ -19,7 +19,7 @@ message.text:
          replies.add(text="Images downloaded", quote=message)
 
 def _search(query: str) -> list:
-     with session.get(f"https://www.bing.com/images/search?q={quote_plus(query)}&form=HDRSC2&first=1&tsc=ImageBasicHover") 
-as resp:
+     query = query.replace("/wiki", "") 
+     with session.get(f"https://www.bing.com/images/search?q={quote_plus(query)}&form=HDRSC2&first=1&tsc=ImageBasicHover") as resp:
          resp.raise_for_status()
          soup = BeautifulSoup(resp.text, 'html
