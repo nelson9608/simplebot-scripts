@@ -28,4 +28,9 @@ def _search(query: str) -> list:
                   urls.append(url)
           return urls
 
-def download_images(urls: list)
+def download_images(urls: list):
+     for url in urls:
+         response = requests.get(url)
+         filename = os.path.basename(url)
+         with open(filename, 'wb') as f:
+             f.write(response.content)
