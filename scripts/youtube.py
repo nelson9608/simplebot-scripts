@@ -53,7 +53,7 @@ def yt2audio(bot: DeltaBot, payload: str, message: Message, replies: Replies) ->
 
 def download_ytvideo(url: str, folder: str, max_size: int) -> str:
     opts = {
-        "format": f"best[filesize<?{max_size}]",
+        "format": "18",
         "max_downloads": 1,
         "socket_timeout": 15,
         "outtmpl": os.path.join(folder, "%(id)s.%(ext)s"),
@@ -64,7 +64,6 @@ def download_ytvideo(url: str, folder: str, max_size: int) -> str:
     except MaxDownloadsReached:
         pass
     return os.path.join(folder, os.listdir(folder)[0])
-
 
 def download_ytaudio(url: str, folder: str, max_size: int) -> str:
     opts = {
