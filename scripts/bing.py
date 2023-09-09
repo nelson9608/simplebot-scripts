@@ -1,4 +1,5 @@
 import simplebot
+from simplebot.plugins.downloader import download
 import requests
 from bs4 import BeautifulSoup
 
@@ -16,7 +17,5 @@ def bing_images(message, replies):
     images = soup.find_all('img', class_='mimg')
     for image in images[:5]:
         image_url = image['src']
-        image_response = requests.get(image_url)
-        with open('bing_image.jpg', 'wb') as f:
-            f.write(image_response.content)
+        download(image_url, 'bing_image.jpg')  # Usa simplebot_downloader para descargar la imagen
         replies.add(filename='bing_image.jpg', caption=f'Imagen de {query} en Bing')
