@@ -1,5 +1,5 @@
 import simplebot
-from simplebot.plugins.downloader import download
+from simplebot_downloader import download
 import requests
 from bs4 import BeautifulSoup
 
